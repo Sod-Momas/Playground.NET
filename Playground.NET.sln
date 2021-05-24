@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard", "MessageBoard\MessageBoard.csproj", "{34053558-2FE7-401E-ADED-C5AF0841B639}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5394AE83-FF44-4BA5-A809-FCBF66B0EDB3}"
+	ProjectSection(SolutionItems) = preProject
+		create.sql = create.sql
+		How-to-install-mssql-in-docker.md = How-to-install-mssql-in-docker.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

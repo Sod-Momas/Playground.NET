@@ -8,13 +8,13 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Security;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace MessageBoard
 {
     public partial class _Default : Page
     {
-        private static string ConnString = ConfigurationManager.ConnectionStrings["ConnString2017"].ConnectionString;
-        private SqlConnection Conn = new SqlConnection(ConnString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,14 +23,14 @@ namespace MessageBoard
         protected void LinkLogin_Click(object sender, EventArgs e)
         {
             //设置Conn对象的连接字符串
-            string ConnSql =
-                System.Configuration.ConfigurationManager.ConnectionStrings["ConnString2017"].ConnectionString;
+            string ConnSql = ConfigurationManager.ConnectionStrings["ConnString2021"].ConnectionString;
             //声明Conn为一个SQL Server连接对象
             SqlConnection Conn = new SqlConnection(ConnSql);
             Conn.Open();
             //使用MD5算法加密用户口令
-            string SecPwd = FormsAuthentication.HashPasswordForStoringInConfigFile(TextPwd.Text, "MD5");
-            string SelectSql = string.Format(" SELECT * FROM userinfo WHERE uname = N'{0}' AND upwd = '{1}' ", TextName.Text.Trim(), SecPwd);
+            //string SecPwd = FormsAuthentication.HashPasswordForStoringInConfigFile(TextPwd.Text, "MD5");
+            string SecPwd = MD5Hash(TextPwd.Text);
+            string SelectSql = string.Format(" SELECT * FROM t_user_info WHERE uname = N'{0}' AND upwd = '{1}' ", TextName.Text.Trim(), SecPwd);
             SqlDataAdapter da = new SqlDataAdapter();  //创建一个空DataAdapter对象
             da.SelectCommand = new SqlCommand(SelectSql, Conn);
             DataSet ds = new DataSet();    //创建一个空dataSet
@@ -74,16 +74,20 @@ namespace MessageBoard
         protected void LinkEdit_Click(object sender, EventArgs e)
         {
 
-            this.Conn.Open();
+            string ConnSql = ConfigurationManager.ConnectionStrings["ConnString2021"].ConnectionString;
+
+            SqlConnection Conn = new SqlConnection(ConnSql);
+            Conn.Open();
             //使用MD5算法加密用户口令
-            string SecPwd = FormsAuthentication.HashPasswordForStoringInConfigFile(TextPwd.Text, "MD5");
-            string SelectSql = string.Format(" SELECT * FROM userinfo WHERE uname = N'{0}' AND upwd = '{1}' ", TextName.Text.Trim(), SecPwd);
+            //string SecPwd = FormsAuthentication.HashPasswordForStoringInConfigFile(TextPwd.Text, "MD5");
+            string SecPwd = MD5Hash(TextPwd.Text);
+            string SelectSql = string.Format(" SELECT * FROM t_user_info WHERE uname = N'{0}' AND upwd = '{1}' ", TextName.Text.Trim(), SecPwd);
             SqlDataAdapter da = new SqlDataAdapter();  //创建一个空DataAdapter对象
-            da.SelectCommand = new SqlCommand(SelectSql, this.Conn);
+            da.SelectCommand = new SqlCommand(SelectSql, Conn);
             DataSet ds = new DataSet();    //创建一个空dataSet
                                            //将AdtaAdapter执行SQL语句返回的结果填充到DataSet对象 
             da.Fill(ds);
-            this.Conn.Close();
+            Conn.Close();
             if (ds.Tables[0].Rows.Count == 0)
             {
                 //如果返回的记录条数为0，则没有条件的用户
@@ -95,6 +99,35 @@ namespace MessageBoard
             Session["userlevel"] = ds.Tables[0].Rows[0][3].ToString().Trim();
             Session["username"] = TextName.Text;
             Response.Redirect("Update.aspx");
+        }
+
+        private static string MD5Hash(string input)
+        {
+            using (MD5 sha256Hash = MD5.Create())
+            {
+                return GetHash(sha256Hash, input);
+            }
+        }
+
+        private static string GetHash(HashAlgorithm hashAlgorithm, string input)
+        {
+
+            // Convert the input string to a byte array and compute the hash.
+            byte[] data = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            // Create a new Stringbuilder to collect the bytes
+            // and create a string.
+            var sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data
+            // and format each one as a hexadecimal string.
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            // Return the hexadecimal string.
+            return sBuilder.ToString();
         }
     }
 }
