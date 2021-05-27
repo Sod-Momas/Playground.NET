@@ -70,7 +70,7 @@
                         <td colspan="2">
                             <asp:LinkButton ID="LinkLogin" runat="server" OnClick="LinkLogin_Click" CssClass="btn btn-default btn-success">登录</asp:LinkButton>
                             &nbsp;
-                <asp:LinkButton ID="LinkReg" runat="server" PostBackUrl="~/Reg.aspx" CssClass="btn btn-default">注册</asp:LinkButton>
+                <asp:LinkButton ID="LinkReg" runat="server" PostBackUrl="~/Register.aspx" CssClass="btn btn-default">注册</asp:LinkButton>
                             &nbsp;
                 <asp:LinkButton ID="LinkRePwd" runat="server" OnClick="LinkRePwd_Click" CssClass="btn btn-danger">忘记密码</asp:LinkButton>
                             &nbsp;
