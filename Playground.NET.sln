@@ -7,7 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard", "MessageBoar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5394AE83-FF44-4BA5-A809-FCBF66B0EDB3}"
 	ProjectSection(SolutionItems) = preProject
-		create.sql = create.sql
 		How-to-install-mssql-in-docker.md = How-to-install-mssql-in-docker.md
 	EndProjectSection
 EndProject
