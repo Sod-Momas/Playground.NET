@@ -48,7 +48,7 @@ namespace MessageBoard
 
             Conn.Open();
             //使用MD5算法加密用户口令
-            string SecPwd = Enocder.MD5Hash(password);
+            string SecPwd = Encoder.MD5Hash(password);
             string SelectSql = string.Format(" SELECT * FROM t_user_info WHERE uname = N'{0}' AND upwd = '{1}' ", username.Trim(), SecPwd);
             SqlDataAdapter da = new SqlDataAdapter();  //创建一个空DataAdapter对象
             da.SelectCommand = new SqlCommand(SelectSql, Conn);
@@ -83,12 +83,12 @@ namespace MessageBoard
             DataRow NewRow = ds.Tables[0].NewRow();
             //向DataSet第一个表对象中添加一个新行
             NewRow["uname"] = Username;
-            NewRow["upwd"] = Enocder.MD5Hash(Password);
+            NewRow["upwd"] = Encoder.MD5Hash(Password);
             //用MD5加密算法加密密码
             NewRow["uemail"] = Email;
             NewRow["ulevel"] = "user";//通过注册页面添加的所有用户都是普通用户级别
             NewRow["uquestion"] = Question;
-            NewRow["uanswer"] = Enocder.MD5Hash(Answer);
+            NewRow["uanswer"] = Encoder.MD5Hash(Answer);
             //用MD5加密算法加密问题答案
             try
             {

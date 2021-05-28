@@ -51,7 +51,7 @@ namespace MessageBoard
             Conn.Open();
             da.SelectCommand = new SqlCommand(SelectSql, Conn);
             da.Fill(ds);
-            var SecAnswer = Enocder.MD5Hash(TextAnswer.Text);
+            var SecAnswer = Encoder.MD5Hash(TextAnswer.Text);
             var MyRow = ds.Tables[0].Rows[0];
             if (SecAnswer == MyRow["uanswer"].ToString().Trim())
             {
@@ -60,7 +60,7 @@ namespace MessageBoard
                 Random r = new Random();
                 var NewPwd = r.Next(100000, 999999).ToString();//产生一个6位数的随机密码
                 msg = string.Format("<script>alert('您的新密码是{0}');</script>", NewPwd);
-                NewPwd = Enocder.MD5Hash(NewPwd);
+                NewPwd = Encoder.MD5Hash(NewPwd);
                 MyRow["upwd"] = NewPwd;//将经过MD5加密后的新密码写入DataSet
                 da.Update(ds);  //将DataSet中的数据变化提交到数据库
                 Conn.Close();

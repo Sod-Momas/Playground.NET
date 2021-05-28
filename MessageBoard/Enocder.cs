@@ -11,7 +11,7 @@ namespace MessageBoard
     /// <summary>
     /// 编码工具类
     /// </summary>
-    public class Enocder
+    public class Encoder
     {
         /// <summary>
         /// 计算md5摘要信息

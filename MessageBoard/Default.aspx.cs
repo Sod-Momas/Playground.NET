@@ -26,7 +26,7 @@ namespace MessageBoard
             Conn.Open();
             //使用MD5算法加密用户口令
             //string SecPwd = FormsAuthentication.HashPasswordForStoringInConfigFile(TextPwd.Text, "MD5");
-            string SecPwd = Enocder.MD5Hash(TextPwd.Text);
+            string SecPwd = Encoder.MD5Hash(TextPwd.Text);
             string SelectSql = string.Format(" SELECT * FROM t_user_info WHERE uname = N'{0}' AND upwd = '{1}' ", TextName.Text.Trim(), SecPwd);
             SqlDataAdapter da = new SqlDataAdapter();  //创建一个空DataAdapter对象
             da.SelectCommand = new SqlCommand(SelectSql, Conn);
@@ -77,7 +77,7 @@ namespace MessageBoard
             Conn.Open();
             //使用MD5算法加密用户口令
             //string SecPwd = FormsAuthentication.HashPasswordForStoringInConfigFile(TextPwd.Text, "MD5");
-            string SecPwd = Enocder.MD5Hash(TextPwd.Text);
+            string SecPwd = Encoder.MD5Hash(TextPwd.Text);
             string SelectSql = string.Format(" SELECT * FROM t_user_info WHERE uname = N'{0}' AND upwd = '{1}' ", TextName.Text.Trim(), SecPwd);
             SqlDataAdapter da = new SqlDataAdapter();  //创建一个空DataAdapter对象
             da.SelectCommand = new SqlCommand(SelectSql, Conn);
