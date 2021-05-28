@@ -73,8 +73,6 @@
                 <asp:LinkButton ID="LinkReg" runat="server" PostBackUrl="~/Register.aspx" CssClass="btn btn-default">注册</asp:LinkButton>
                             &nbsp;
                 <asp:LinkButton ID="LinkRePwd" runat="server" OnClick="LinkRePwd_Click" CssClass="btn btn-danger">忘记密码</asp:LinkButton>
-                            &nbsp;
-                <asp:LinkButton ID="LinkEdit" runat="server" OnClick="LinkEdit_Click" CssClass="btn btn-info">修改信息</asp:LinkButton>
                         </td>
                     </tr>
                 </tbody>
