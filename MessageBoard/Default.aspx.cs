@@ -15,7 +15,14 @@ namespace MessageBoard
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var name = Session["username"];
+            var level = Session["userlevel"];
+            if (name != null && level != null)
+            {
+                // 如果是已经登录的用户，送回留言页面
+                Response.Redirect("~/MessageBoard");
+                return;
+            }
         }
         protected void LinkLogin_Click(object sender, EventArgs e)
         {
@@ -54,7 +61,7 @@ namespace MessageBoard
             //}
             Session["userlevel"] = ds.Tables[0].Rows[0][3].ToString().Trim();
             Session["username"] = TextName.Text;
-            Response.Redirect("~/Index2.aspx");
+            Response.Redirect("~/MessageBoard.aspx");
         }
 
         protected void LinkRePwd_Click(object sender, EventArgs e)
