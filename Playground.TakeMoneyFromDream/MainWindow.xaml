@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Playground.TakeMoneyFromDream"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="梦境ATM - 把梦里的钱取出来" Width="650" Height="500" Icon="/momas.cc.ico">
     <Grid>
+        <Grid HorizontalAlignment="Left" Height="228" Margin="10,10,0,0" VerticalAlignment="Top" Width="380.037" d:LayoutOverrides="VerticalAlignment">
+            <Label Content="银行卡账号" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" FontSize="21"/>
+            <PasswordBox x:Name="bankPasswordPasswordBox" HorizontalAlignment="Left" Margin="145,77.96,0,0" FontSize="21"  Width="200" Height="30" VerticalAlignment="Top" />
+            <Label Content="银行卡密码" HorizontalAlignment="Left" Margin="10,67.48,0,0" FontSize="21" VerticalAlignment="Top"/>
+            <TextBox x:Name="bankNoTextBox" HorizontalAlignment="Left" Height="30" Margin="145,32.48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="21"/>
+            <Label Content="开户主姓名" HorizontalAlignment="Left" Margin="10,107.96,0,0" VerticalAlignment="Top" FontSize="21"/>
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="145,118.44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="21" SpellCheck.IsEnabled="True"/>
+            <Label Content="预留手机号" HorizontalAlignment="Left" Margin="10,153.44,0,0" VerticalAlignment="Top" FontSize="21"/>
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="145,163.92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="21"/>
+        </Grid>
+        
+
+        <Image HorizontalAlignment="Left" Height="217" Margin="272.169,130.62,-46.169,0" VerticalAlignment="Top" Width="416" Source="/100RMB.jpg" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <RadioButton Content="10块" HorizontalAlignment="Left" Margin="36,258.156,0,0" VerticalAlignment="Top" FontSize="14.667"/>
+        <RadioButton Content="100块" HorizontalAlignment="Left" Margin="36,280.782,0,0" VerticalAlignment="Top" FontSize="14.667" IsChecked="True"/>
+        <RadioButton Content="1000块" HorizontalAlignment="Left" Margin="36,303.408,0,0" VerticalAlignment="Top" FontSize="14.667"/>
+        <RadioButton Content="1万块" HorizontalAlignment="Left" Margin="36,326.034,0,0" VerticalAlignment="Top" FontSize="14.667"/>
+        <RadioButton Content="100万块" HorizontalAlignment="Left" Margin="36,348.66,0,0" VerticalAlignment="Top" FontSize="14.667"/>
+        <RadioButton Content="500万块" HorizontalAlignment="Left" Margin="36,371.286,0,0" VerticalAlignment="Top" FontSize="14.667"/>
+        <RadioButton Content="1000万块" HorizontalAlignment="Left" Margin="36,393.912,0,0" VerticalAlignment="Top" FontSize="14.667"/>
+        <Button Content="开始取钱" HorizontalAlignment="Left" Margin="148.927,371.286,0,0" VerticalAlignment="Top" Width="105" Height="44.24" FontSize="16" Click="Button_Click"/>
+        <Label Content="您的钱包余额:" HorizontalAlignment="Left" Margin="151,295.794,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.00" HorizontalAlignment="Left" Margin="240.89,295.794,0,0" VerticalAlignment="Top"/>
+
+        <ProgressBar x:Name="processBar" HorizontalAlignment="Left" Height="46" Margin="196,213,0,0" VerticalAlignment="Top" Width="240" Visibility="Hidden" />
+       
+
 
     </Grid>
 </Window>

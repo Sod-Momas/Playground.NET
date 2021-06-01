@@ -24,5 +24,16 @@ namespace Playground.TakeMoneyFromDream
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //定义消息框             
+            string messageBoxText = "您为何不现在开始做梦?";
+            string caption = "您还未开始做梦!";
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            //显示消息框              
+            MessageBox.Show(messageBoxText, caption, button, icon);
+        }
     }
 }

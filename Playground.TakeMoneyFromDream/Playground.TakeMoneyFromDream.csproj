@@ -6,4 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Resource Include="100RMB.jpg" />
+    <Resource Include="momas.cc.ico" />
+  </ItemGroup>
+
 </Project>
