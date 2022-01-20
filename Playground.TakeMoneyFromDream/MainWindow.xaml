@@ -13,9 +13,9 @@
             <Label Content="银行卡密码" HorizontalAlignment="Left" Margin="10,67.48,0,0" FontSize="21" VerticalAlignment="Top"/>
             <TextBox x:Name="bankNoTextBox" HorizontalAlignment="Left" Height="30" Margin="145,32.48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="21"/>
             <Label Content="开户主姓名" HorizontalAlignment="Left" Margin="10,107.96,0,0" VerticalAlignment="Top" FontSize="21"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Margin="145,118.44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="21" SpellCheck.IsEnabled="True"/>
+            <TextBox x:Name="holderNameText" HorizontalAlignment="Left" Height="30" Margin="145,118.44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="21" SpellCheck.IsEnabled="True"/>
             <Label Content="预留手机号" HorizontalAlignment="Left" Margin="10,153.44,0,0" VerticalAlignment="Top" FontSize="21"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Margin="145,163.92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="21"/>
+            <TextBox x:Name="phoneText" HorizontalAlignment="Left" Height="30" Margin="145,163.92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="21"/>
         </Grid>
         
 
